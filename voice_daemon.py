@@ -27,16 +27,12 @@ def _resolve_path(p):
         p = _SCRIPT_DIR / p
     return p
 
-MODELS_DIR = _resolve_path(_cfg["models_dir"])
-MODEL_SUBDIR = _cfg["model_subdir"]
-MODEL_FILENAME = _cfg["model_filename"]
-TOKENS_FILENAME = _cfg["tokens_filename"]
+SENSE_VOICE_DIR = _resolve_path(_cfg["sense_voice_model_dir"])
+MODEL_PATH = SENSE_VOICE_DIR / "model.int8.onnx"
+TOKENS_PATH = SENSE_VOICE_DIR / "tokens.txt"
 HOTKEY = _cfg["hotkey"]
 SAMPLE_RATE = _cfg.get("sample_rate", 16000)
 PID_FILE = _cfg.get("pid_file", "/tmp/voice_daemon.pid")
-
-MODEL_PATH = MODELS_DIR / MODEL_SUBDIR / MODEL_FILENAME
-TOKENS_PATH = MODELS_DIR / MODEL_SUBDIR / TOKENS_FILENAME
 
 PUNCT_MODEL_DIR = _cfg.get("punctuation_model_dir")
 PUNCT_MODEL_PATH = _resolve_path(PUNCT_MODEL_DIR) / "model.onnx" if PUNCT_MODEL_DIR else None

@@ -56,9 +56,7 @@ tail -f /tmp/voice_daemon.log
 
 ```json
 {
-  "models_dir": "./models",
-  "model_subdir": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
-  "model_filename": "model.int8.onnx",
+  "sense_voice_model_dir": "./models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
   "punctuation_model_dir": "./models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12",
   "hotkey": "alt_gr",
   "sample_rate": 16000,
@@ -70,9 +68,7 @@ tail -f /tmp/voice_daemon.log
 
 | 字段 | 说明 |
 |---|---|
-| `models_dir` | SenseVoice 模型根目录 |
-| `model_subdir` | 模型子文件夹名 |
-| `model_filename` | ONNX 模型文件名 |
+| `sense_voice_model_dir` | SenseVoice 模型目录（含 model.int8.onnx 和 tokens.txt） |
 | `punctuation_model_dir` | 标点模型目录（可选，留空则不加标点） |
 | `hotkey` | 快捷键（见下表） |
 | `sample_rate` | 录音采样率，固定 16000 |

@@ -1,9 +1,6 @@
 {
-  "models_dir": "~/Library/Application Support/Memo/models",
-  "model_subdir": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
-  "model_filename": "model.int8.onnx",
-  "tokens_filename": "tokens.txt",
-  "punctuation_model_dir": "/Users/wangjianfeng/Documents/VibingLocalServer/models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12",
+  "sense_voice_model_dir": "./models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+  "punctuation_model_dir": "./models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12",
   "hotkey": "alt_gr",
   "sample_rate": 16000,
   "pid_file": "/tmp/voice_daemon.pid",
