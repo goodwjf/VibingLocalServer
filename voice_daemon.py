@@ -21,7 +21,13 @@ _CONFIG_PATH = _SCRIPT_DIR / "config.json"
 with open(_CONFIG_PATH) as f:
     _cfg = json.load(f)
 
-MODELS_DIR = Path(_cfg["models_dir"]).expanduser()
+def _resolve_path(p):
+    p = Path(p).expanduser()
+    if not p.is_absolute():
+        p = _SCRIPT_DIR / p
+    return p
+
+MODELS_DIR = _resolve_path(_cfg["models_dir"])
 MODEL_SUBDIR = _cfg["model_subdir"]
 MODEL_FILENAME = _cfg["model_filename"]
 TOKENS_FILENAME = _cfg["tokens_filename"]
@@ -33,7 +39,7 @@ MODEL_PATH = MODELS_DIR / MODEL_SUBDIR / MODEL_FILENAME
 TOKENS_PATH = MODELS_DIR / MODEL_SUBDIR / TOKENS_FILENAME
 
 PUNCT_MODEL_DIR = _cfg.get("punctuation_model_dir")
-PUNCT_MODEL_PATH = Path(PUNCT_MODEL_DIR) / "model.onnx" if PUNCT_MODEL_DIR else None
+PUNCT_MODEL_PATH = _resolve_path(PUNCT_MODEL_DIR) / "model.onnx" if PUNCT_MODEL_DIR else None
 
 OLLAMA_ENABLED = _cfg.get("ollama_enabled", False)
 OLLAMA_MODEL = _cfg.get("ollama_model", "qwen2.5:7b")

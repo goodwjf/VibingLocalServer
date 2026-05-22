@@ -10,7 +10,7 @@ pip3 install sherpa_onnx sounddevice pynput numpy
 
 # 2. 下载 SenseVoice 模型（~1GB）
 curl -L https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17.tar.bz2 | \
-  tar xj -C ~/Library/Application\ Support/Memo/models/
+  tar xj -C /path/to/VibingLocalServer/models/
 
 # 3. （可选）下载标点模型（~266MB）
 curl -L https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2 | \
@@ -56,10 +56,10 @@ tail -f /tmp/voice_daemon.log
 
 ```json
 {
-  "models_dir": "~/Library/Application Support/Memo/models",
+  "models_dir": "./models",
   "model_subdir": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
   "model_filename": "model.int8.onnx",
-  "punctuation_model_dir": "/path/to/models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12",
+  "punctuation_model_dir": "./models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12",
   "hotkey": "alt_gr",
   "sample_rate": 16000,
   "pid_file": "/tmp/voice_daemon.pid",
